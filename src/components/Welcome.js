@@ -5,6 +5,9 @@ class App extends Component {
   render() {
     return (
       <div className="Welcome">
+
+        <h2> Welcome! </h2>
+        
         <p> I made this app because I love discovering new music, but when apps 'recommend' me new music they usually show me bands I already know... womp womp.</p>
 
         <p> What I wanted was some sort of 'second degree recommendation' - recommend me bands based on bands I would like <i> based on bands I like</i> - that's Spapptify! </p>

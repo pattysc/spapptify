@@ -8,7 +8,7 @@ class SongWidget extends Component {
     super()
 
     this.state = {
-      // playlist: '',
+      currentIndex: 0,
       currentTrack: ''
     }
   }
@@ -16,7 +16,7 @@ class SongWidget extends Component {
   componentDidMount(){
     this.setState({
       // playlist: this.props.playlist,
-      currentTrack: this.props.playlist[Math.round(Math.random()*20)]
+      currentTrack: this.props.playlist[this.state.currentIndex]
     })
   }
 
@@ -30,7 +30,7 @@ class SongWidget extends Component {
     let string = `https://embed.spotify.com/?uri=spotify:track:${this.state.currentTrack}`
 
     return (
-      <div>
+      <div className='songWidget'>
         <div>
           <iframe src={string} width="300" height="380"></iframe>
         </div>

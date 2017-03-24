@@ -1,5 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400');
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  background-color: #FFF;
+  color: #434343;
 }
+
+h2{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  color: #d17e81;
+}
+
+h1:hover{
+  color:#99373a
+}
+
+a{
+  text-decoration: none;
+  color: #d17e81;
+}
+
+a:hover{
+  color:#99373a
+}
+
+#grid{
+  display: grid;
+  grid-template-columns: 400px 400px
+  /*clear: both;
+  text-align: center;*/
+}
+
+/*#grid .checkboxForm{
+  padding: 10px;
+  float: left;
+}
+
+#grid .songWidget{
+  float: right;
+  vertical-align: middle;
+}*/

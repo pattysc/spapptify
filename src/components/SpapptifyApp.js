@@ -18,9 +18,11 @@ class SpapptifyApp extends Component {
   render() {
     return (
       <div className="SpapptifyApp">
-        <UserInput/>
-        {this.props.recommended_artists.length > 0 && <CheckboxForm/>}
-        {this.props.playlist.length > 0 && <SongWidget/>}
+          <UserInput/>
+          <div id="grid">
+          {this.props.recommended_artists.length > 0 && <CheckboxForm/>}
+          {this.props.playlist.length > 0 && <SongWidget/>}
+        </div>
       </div>
     );
   }

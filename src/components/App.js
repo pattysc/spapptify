@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2> Welcome To Spapptify! </h2>
+        <h2> Spapptify </h2>
 
       {this.props.children}
 

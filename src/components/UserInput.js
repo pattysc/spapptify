@@ -27,7 +27,11 @@ class UserInput extends Component {
     return (
       <div>
         <form onSubmit={this.artistSubmit.bind(this)}>
-          <h3>give me an artist you like</h3><br/>
+          <div id="grid">
+            <div><h3>Give me one of your favorite artists</h3></div>
+            <div><h3>lol</h3></div>
+          </div>
+          <br/>
           <input type='text' onChange={this.handleChange.bind(this)} value={this.state.query} />
           <input type='submit' />
         </form>

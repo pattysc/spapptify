@@ -40,3 +40,10 @@ export function resetPlaylist(){
     payload: []
   }
 }
+
+export function resetRecommendations(){
+  return{
+    type: 'RESET_RECOMMENDATIONS',
+    payload: []
+  }
+}
