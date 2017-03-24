@@ -25,13 +25,13 @@ class CheckboxForm extends Component {
 
   checkboxSubmit(event){
     event.preventDefault()
-    this.selectedCheckboxes = new Set();
-    this.props.resetPlaylist()
     let artist_ids = this.selectedCheckboxes
     this.props.makePlaylist(artist_ids)
+    this.selectedCheckboxes = new Set();
   }
 
   render(){
+    console.log();
     return (
       <div>
         <h3> check up to 5 options </h3>
@@ -42,8 +42,6 @@ class CheckboxForm extends Component {
           <h3> recommend me a song based on these artists! </h3>
           <input type="submit"/>
         </form>
-
-        {this.props.playlist.length > 0 ? <SongWidget/>:''}
       </div>
     )
   }

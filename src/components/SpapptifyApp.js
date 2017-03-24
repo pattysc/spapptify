@@ -11,7 +11,7 @@ class SpapptifyApp extends Component {
 
   componentDidMount(){
     axios.get(`http://localhost:8080/auth`).then(function(data){
-      console.log(data.data);
+      console.log(data.data); //yay or fail message
     })
   }
 
@@ -19,8 +19,8 @@ class SpapptifyApp extends Component {
     return (
       <div className="SpapptifyApp">
         <UserInput/>
-        {this.props.recommended_artists.length > 0 ? <CheckboxForm/> : ''}
-        {this.props.playlist.length > 0 ? <SongWidget/> : ''}
+        {this.props.recommended_artists.length > 0 && <CheckboxForm/>}
+        {this.props.playlist.length > 0 && <SongWidget/>}
       </div>
     );
   }

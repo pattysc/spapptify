@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getRecommendedArtists, makePlaylist } from '../actions'
+import { getRecommendedArtists, makePlaylist, resetPlaylist } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -11,13 +11,10 @@ class UserInput extends Component {
     }
   }
 
-  componentWillMount(){
-    this.selectedCheckboxes = new Set();
-  }
-
   artistSubmit(event){
     event.preventDefault()
     this.props.getRecommendedArtists(this.state.query)
+    this.props.resetPlaylist()
   }
 
   handleChange(e){
@@ -47,7 +44,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({getRecommendedArtists, makePlaylist}, dispatch)
+  return bindActionCreators({getRecommendedArtists, makePlaylist, resetPlaylist}, dispatch)
 }
 
 
