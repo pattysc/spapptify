@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { getRecommendedArtists, makePlaylist } from '../actions'
+import { getRecommendedArtists, makePlaylist, resetPlaylist } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import SongWidget from './SongWidget'
 
 class CheckboxForm extends Component {
 
@@ -24,18 +25,13 @@ class CheckboxForm extends Component {
 
   checkboxSubmit(event){
     event.preventDefault()
+    this.selectedCheckboxes = new Set();
+    this.props.resetPlaylist()
     let artist_ids = this.selectedCheckboxes
     this.props.makePlaylist(artist_ids)
   }
 
   render(){
-    let lol = ''
-    if(this.props.playlist.length > 0){
-      // let ids = this.props.playlist.join(",")
-      let track = this.props.playlist[Math.round(Math.random()*20)]
-      let string = `https://embed.spotify.com/?uri=spotify:track:${track}`
-      lol = <iframe src={string} width="300" height="380"></iframe>
-    }
     return (
       <div>
         <h3> check up to 5 options </h3>
@@ -47,9 +43,7 @@ class CheckboxForm extends Component {
           <input type="submit"/>
         </form>
 
-        <div>
-          {lol}
-        </div>
+        {this.props.playlist.length > 0 ? <SongWidget/>:''}
       </div>
     )
   }
@@ -63,7 +57,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({getRecommendedArtists, makePlaylist}, dispatch)
+  return bindActionCreators({getRecommendedArtists, makePlaylist, resetPlaylist}, dispatch)
 }
 
 

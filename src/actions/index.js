@@ -33,3 +33,10 @@ export function makePlaylist(artist_ids){
     payload: tracks
   }
 }
+
+export function resetPlaylist(){
+  return{
+    type: 'RESET_PLAYLIST',
+    payload: []
+  }
+}

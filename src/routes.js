@@ -1,10 +1,12 @@
 import React from 'react'
-import {Route} from 'react-router'
+import {Route, IndexRoute} from 'react-router'
 import App from './components/App'
-import SearchForm from './components/SearchForm'
+import SpapptifyApp from './components/SpapptifyApp'
+import Welcome from './components/Welcome'
 
 export default(
   <Route path="/" component={App}>
-    <Route path="searchform" component={SearchForm}/>
+    <IndexRoute component={Welcome} />
+    <Route path="/search" component={SpapptifyApp} />
   </Route>
 )

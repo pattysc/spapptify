@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import { getRecommendedArtists, makePlaylist } from '../actions'
-import CheckboxForm from './CheckboxForm'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-class SearchForm extends Component {
-
+class UserInput extends Component {
   constructor(){
     super()
     this.state = {
-      query: '',
-      showCheckbox: false
+      query: ''
     }
   }
 
@@ -21,9 +18,6 @@ class SearchForm extends Component {
   artistSubmit(event){
     event.preventDefault()
     this.props.getRecommendedArtists(this.state.query)
-    this.setState({
-      showCheckbox: true
-    })
   }
 
   handleChange(e){
@@ -40,8 +34,6 @@ class SearchForm extends Component {
           <input type='text' onChange={this.handleChange.bind(this)} value={this.state.query} />
           <input type='submit' />
         </form>
-
-        { this.state.showCheckbox ? <CheckboxForm/> : null }
       </div>
     )
   }
@@ -59,4 +51,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm)
+export default connect(mapStateToProps, mapDispatchToProps)(UserInput)
