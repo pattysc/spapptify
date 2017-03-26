@@ -10,7 +10,7 @@ import SongWidget from './SongWidget'
 class SpapptifyApp extends Component {
 
   componentDidMount(){
-    axios.get(`http://localhost:8080/auth`).then(function(data){
+    axios.get(`https://spapptifyserver.herokuapp.com/auth`).then(function(data){
       console.log(data.data); //yay or fail message
     })
   }
@@ -18,8 +18,8 @@ class SpapptifyApp extends Component {
   render() {
     return (
       <div className="SpapptifyApp">
-          <UserInput/>
-          <div id="grid">
+        <UserInput/>
+        <div id="grid">
           {this.props.recommended_artists.length > 0 && <CheckboxForm/>}
           {this.props.playlist.length > 0 && <SongWidget/>}
         </div>

@@ -24,7 +24,7 @@ export function getRecommendedArtists(query){
 export function makePlaylist(artist_ids){
   console.log('makeplaylist action');
   let ids = Array.from(artist_ids).join(",")
-  var tracks = axios.get(`http://localhost:8080/make`, {params: {ids: ids} }).then(function(data){
+  var tracks = axios.get(`https://spapptifyserver.herokuapp.com/make`, {params: {ids: ids} }).then(function(data){
     console.log(data);
     return data.data.tracks
   })

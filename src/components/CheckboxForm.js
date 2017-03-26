@@ -31,14 +31,20 @@ class CheckboxForm extends Component {
     // this.props.resetRecommendations()
   }
 
+  checkboxCheck(){
+    console.log(this);
+  }
+
   render(){
     return (
       <div className='checkboxForm'>
         <h3> check up to 5 options </h3>
-        <form onSubmit={this.checkboxSubmit.bind(this)}>
-          { this.props.recommended_artists.map((artist) => {
-              return <div className="checkbox"> <input type="checkbox" id={artist.name} onChange={this.toggleCheckbox.bind(this, artist.id)} /> <label> {artist.name} </label> </div>
-            })}
+        <form onSubmit={this.checkboxSubmit.bind(this)} onChange={this.checkboxCheck.bind(this)}>
+          <div id="recommendations">
+            { this.props.recommended_artists.map((artist) => {
+                return <div className="checkbox"> <input type="checkbox" id={artist.name} onChange={this.toggleCheckbox.bind(this, artist.id)} /> <label> {artist.name} </label> </div>
+              })}
+          </div>
           <h3> recommend me a song based on these artists! </h3>
           <input type="submit"/>
         </form>
