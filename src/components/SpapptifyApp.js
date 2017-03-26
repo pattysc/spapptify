@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { getRecommendedArtists, makePlaylist } from '../actions'
+import { getRecommendedArtists, makePlaylist, resetPlaylist, resetRecommendations } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import UserInput from './UserInput'
 import CheckboxForm from './CheckboxForm'
 import SongWidget from './SongWidget'
+import ResetButton from './ResetButton'
 
 class SpapptifyApp extends Component {
 
@@ -23,6 +24,7 @@ class SpapptifyApp extends Component {
           {this.props.recommended_artists.length > 0 && <CheckboxForm/>}
           {this.props.playlist.length > 0 && <SongWidget/>}
         </div>
+        {this.props.playlist.length > 0 && <ResetButton/>}
       </div>
     );
   }
@@ -36,7 +38,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({getRecommendedArtists, makePlaylist}, dispatch)
+  return bindActionCreators({getRecommendedArtists, makePlaylist, resetPlaylist, resetRecommendations}, dispatch)
 }
 
 

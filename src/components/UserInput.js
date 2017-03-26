@@ -14,7 +14,7 @@ class UserInput extends Component {
   artistSubmit(event){
     event.preventDefault()
     this.props.getRecommendedArtists(this.state.query)
-    this.props.resetPlaylist()
+    // this.props.resetPlaylist()
   }
 
   handleChange(e){

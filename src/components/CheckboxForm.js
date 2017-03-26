@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getRecommendedArtists, makePlaylist, resetRecommendations } from '../actions'
+import { getRecommendedArtists, makePlaylist } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import SongWidget from './SongWidget'
@@ -28,7 +28,6 @@ class CheckboxForm extends Component {
     let artist_ids = this.selectedCheckboxes
     this.props.makePlaylist(artist_ids)
     this.selectedCheckboxes = new Set();
-    // this.props.resetRecommendations()
   }
 
   checkboxCheck(){
@@ -61,7 +60,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({getRecommendedArtists, makePlaylist, resetRecommendations}, dispatch)
+  return bindActionCreators({getRecommendedArtists, makePlaylist}, dispatch)
 }
 
 
